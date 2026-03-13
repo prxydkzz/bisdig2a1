@@ -1752,3 +1752,23 @@ display:flex;
 }
 
 }
+
+@media (max-width:768px){
+
+.nav-links{
+position:absolute;
+top:65px;
+right:10px;
+display:none;
+flex-direction:column;
+width:200px;
+background:rgba(255,255,255,0.9);
+padding:12px;
+border-radius:10px;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+}
