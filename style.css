@@ -1755,18 +1755,38 @@ display:flex;
 
 @media (max-width:768px){
 
+/* tombol hamburger */
+.burger{
+display:flex;
+flex-direction:column;
+cursor:pointer;
+}
+
+.burger div{
+width:22px;
+height:3px;
+background:#000;
+margin:4px 0;
+}
+
+/* menu popup */
 .nav-links{
 position:absolute;
 top:65px;
 right:10px;
-display:none;
+left:auto;
+
+display:none;              /* penting: menu tidak tampil */
 flex-direction:column;
+
 width:200px;
 background:rgba(255,255,255,0.9);
 padding:12px;
 border-radius:10px;
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
 }
 
+/* saat hamburger diklik */
 .nav-links.active{
 display:flex;
 }

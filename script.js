@@ -217,24 +217,29 @@ document.addEventListener('keydown', function(e) {
     }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", function(){
 
-  const burger = document.getElementById("burgerBtn");
-  const navMenu = document.getElementById("navMenu");
+const burger = document.getElementById("burgerBtn");
+const navMenu = document.getElementById("navMenu");
 
-  if (!burger || !navMenu) return;
+/* buka menu */
+burger.addEventListener("click", function(e){
+e.stopPropagation();
+navMenu.classList.toggle("active");
+});
 
-  /* buka / tutup popup */
-  burger.addEventListener("click", function () {
-    navMenu.classList.toggle("active");
-  });
+/* klik menu -> popup hilang */
+document.querySelectorAll("#navMenu a").forEach(link=>{
+link.addEventListener("click", function(){
+navMenu.classList.remove("active");
+});
+});
 
-  /* klik menu -> popup hilang */
-  const links = navMenu.querySelectorAll("a");
-  links.forEach(function (link) {
-    link.addEventListener("click", function () {
-      navMenu.classList.remove("active");
-    });
-  });
+/* klik area lain -> popup hilang */
+document.addEventListener("click", function(e){
+if(!navMenu.contains(e.target) && !burger.contains(e.target)){
+navMenu.classList.remove("active");
+}
+});
 
 });
