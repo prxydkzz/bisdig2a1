@@ -1703,3 +1703,52 @@ display:flex;
 }
 
 }
+
+@media (max-width:768px){
+
+.burger{
+display:flex;
+flex-direction:column;
+cursor:pointer;
+}
+
+.burger div{
+width:22px;
+height:3px;
+background:#000;
+margin:4px 0;
+}
+
+/* popup menu kanan */
+.nav-links{
+position:absolute;
+top:65px;
+right:10px;
+left:auto;        /* penting supaya tidak ke kiri */
+width:200px;
+
+background:rgba(255,255,255,0.9);
+display:none;
+flex-direction:column;
+
+padding:12px;
+border-radius:10px;
+
+box-shadow:0 8px 20px rgba(0,0,0,0.15);
+}
+
+.nav-links li{
+margin:8px 0;
+list-style:none;
+}
+
+.nav-links a{
+color:black;
+text-decoration:none;
+}
+
+.nav-links.active{
+display:flex;
+}
+
+}

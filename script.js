@@ -2,6 +2,7 @@
 let currentPage = 1;
 const totalPages = 4;
 
+
 function changePage(direction) {
     const prevBtn = document.getElementById('prevBtn');
     const nextBtn = document.getElementById('nextBtn');
@@ -214,4 +215,33 @@ document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape') {
         closePengumumanModal();
     }
+});
+
+document.addEventListener("DOMContentLoaded", function(){
+
+const burger = document.getElementById("burgerBtn");
+const navMenu = document.getElementById("navMenu");
+
+if(!burger || !navMenu) return;
+
+/* buka tutup menu */
+burger.addEventListener("click", function(e){
+e.stopPropagation();
+navMenu.classList.toggle("active");
+});
+
+/* klik menu -> popup hilang */
+document.querySelectorAll("#navMenu a").forEach(function(link){
+link.addEventListener("click", function(){
+navMenu.classList.remove("active");
+});
+});
+
+/* klik luar -> popup hilang */
+document.addEventListener("click", function(e){
+if(!navMenu.contains(e.target) && !burger.contains(e.target)){
+navMenu.classList.remove("active");
+}
+});
+
 });
