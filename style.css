@@ -1714,3 +1714,52 @@ display:flex;
 }
 
 }
+
+/* ==================== SECTION IZIN ==================== */
+
+.izin-section{
+padding:80px 20px;
+text-align:center;
+background:#f9f9f9;
+}
+
+.izin-section h2{
+font-size:28px;
+margin-bottom:15px;
+}
+
+.izin-section p{
+font-size:16px;
+color:#555;
+}
+
+/* tombol izin */
+
+.btn-izin{
+display:inline-block;
+margin-top:25px;
+padding:14px 35px;
+background:#85258a;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:bold;
+font-size:16px;
+transition:0.3s;
+}
+
+.btn-izin:hover{
+background:#85258a;
+transform:scale(1.05);
+}
+
+/* ==================== RESPONSIVE HP ==================== */
+
+@media (max-width:768px){
+
+.btn-izin{
+padding:12px 30px;
+font-size:15px;
+}
+
+}
