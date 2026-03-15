@@ -291,3 +291,24 @@ window.open(`https://wa.me/${nomor}?text=${encodeURIComponent(pesan)}`);
 }
 
 }
+
+// ==================== NAVBAR HIDE ON SCROLL ====================
+
+let lastScrollTop = 0;
+const navbar = document.querySelector(".navbar");
+
+window.addEventListener("scroll", function() {
+
+let scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+if (scrollTop > lastScrollTop) {
+    // scroll ke bawah → sembunyikan navbar
+    navbar.classList.add("hide");
+} else {
+    // scroll ke atas → tampilkan navbar
+    navbar.classList.remove("hide");
+}
+
+lastScrollTop = scrollTop;
+
+});
