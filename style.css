@@ -858,6 +858,7 @@ footer {
 .login-container {
     width: 100%;
     max-width: 450px;
+    margin: auto;
 }
 
 .login-box {
@@ -1000,6 +1001,7 @@ footer {
 .login-container {
     width: 100%;
     max-width: 450px;
+    margin: auto;
 }
 
 .login-box {
@@ -1230,9 +1232,11 @@ margin:4px 0;
     }
 
     .login-box {
-        width: 90%;
-        padding: 2rem;
-    }
+    width: 90%;
+    max-width: 400px;
+    padding: 2rem;
+    margin: auto;
+}
 
     .logout-btn {
         font-size: 0.9rem;
