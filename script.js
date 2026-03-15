@@ -310,3 +310,25 @@ if(currentScroll > lastScroll){
 lastScroll = currentScroll;
 
 });
+
+/*===== ANTI COPY =====*/
+
+// Disable klik kanan
+document.addEventListener("contextmenu", function (e) {
+  e.preventDefault();
+});
+
+// Disable shortcut inspect
+document.addEventListener("keydown", function (e) {
+  if (e.key === "F12") {
+    e.preventDefault();
+  }
+
+  if (e.ctrlKey && e.shiftKey && e.key === "I") {
+    e.preventDefault();
+  }
+
+  if (e.ctrlKey && e.key === "U") {
+    e.preventDefault();
+  }
+});
