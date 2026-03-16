@@ -213,20 +213,17 @@ document.addEventListener("DOMContentLoaded", function(){
 const burger = document.getElementById("burgerBtn");
 const navMenu = document.getElementById("navMenu");
 
-/* buka menu */
 burger.addEventListener("click", function(e){
 e.stopPropagation();
 navMenu.classList.toggle("active");
 });
 
-/* klik menu -> popup hilang */
 document.querySelectorAll("#navMenu a").forEach(link=>{
 link.addEventListener("click", function(){
 navMenu.classList.remove("active");
 });
 });
 
-/* klik area lain -> popup hilang */
 document.addEventListener("click", function(e){
 if(!navMenu.contains(e.target) && !burger.contains(e.target)){
 navMenu.classList.remove("active");
@@ -302,9 +299,9 @@ window.addEventListener("scroll", () => {
 let currentScroll = window.pageYOffset;
 
 if(currentScroll > lastScroll){
-    navbar.style.top = "-120px"; // sembunyikan navbar
+    navbar.style.top = "-120px"; 
 }else{
-    navbar.style.top = "0"; // tampilkan navbar
+    navbar.style.top = "0"; 
 }
 
 lastScroll = currentScroll;
@@ -341,29 +338,89 @@ document.addEventListener("contextmenu", function (e) {
 // Disable shortcut inspect
 document.addEventListener("keydown", function (e) {
 
-  // F12
   if (e.key === "F12") {
     e.preventDefault();
   }
 
-  // Ctrl + Shift + I
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "i") {
     e.preventDefault();
   }
 
-  // Ctrl + Shift + J
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "j") {
     e.preventDefault();
   }
 
-  // Ctrl + Shift + C
   if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "c") {
     e.preventDefault();
   }
 
-  // Ctrl + U
   if (e.ctrlKey && e.key.toLowerCase() === "u") {
     e.preventDefault();
   }
 
 });
+
+// DISABLE RIGHT CLICK
+
+document.addEventListener("contextmenu", function(e){
+    e.preventDefault();
+});
+
+// DISABLE KEYBOARD SHORTCUT
+
+document.addEventListener("keydown", function(e){
+
+    if(e.key === "F12"){
+        e.preventDefault();
+    }
+
+    if(e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "i"){
+        e.preventDefault();
+    }
+
+    if(e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "j"){
+        e.preventDefault();
+    }
+
+    if(e.ctrlKey && e.shiftKey && e.key.toLowerCase() === "c"){
+        e.preventDefault();
+    }
+
+    if(e.ctrlKey && e.key.toLowerCase() === "u"){
+        e.preventDefault();
+    }
+
+    if(e.ctrlKey && e.key.toLowerCase() === "s"){
+        e.preventDefault();
+    }
+
+});
+
+// DISABLE COPY TEXT
+
+document.addEventListener("copy", function(e){
+    e.preventDefault();
+});
+
+// DISABLE DRAG IMAGE
+
+document.addEventListener("dragstart", function(e){
+    e.preventDefault();
+});
+
+// DETECT DEVTOOLS
+
+setInterval(function(){
+
+    const threshold = 160;
+
+    if(
+        window.outerWidth - window.innerWidth > threshold ||
+        window.outerHeight - window.innerHeight > threshold
+    ){
+        document.body.innerHTML = "";
+        alert("Inspect tidak diizinkan di website ini.");
+        location.reload();
+    }
+
+},1000);
